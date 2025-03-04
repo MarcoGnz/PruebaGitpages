@@ -1,11 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Página de Prueba</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página de Prueba</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Fondo de la página */
+    body {
+      background-image: url('https://i.pinimg.com/736x/a8/3c/41/a83c41f61d5a0ddad561c62d38ed2949.jpg'); /* Cambia esta URL por la imagen que prefieras */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 100vh;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    /* Botones */
+    .btn-custom {
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.1);
+      background-color: #ff6347; /* Un color llamativo */
+    }
+
+    .btn-custom:active {
+      transform: scale(0.95);
+    }
+
+    /* Efecto de sombra sobre el texto */
+    h1 {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Efecto de parallax */
+    .parallax {
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 50px 0;
+    }
+
+    /* Animación de botones */
+    .btn-animate {
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <h1>¡Hola, Mundo!</h1>
-    <p>Esta es una prueba en GitHub Pages.</p>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1>Bienvenido a mi página de prueba</h1>
+    <p class="lead">Prueba los efectos con los botones y el movimiento del mouse.</p>
+    <a href="#" class="btn btn-custom btn-lg">Haz Click Aquí</a>
+    <br><br>
+    <a href="#" class="btn btn-danger btn-lg btn-animate">Botón Animado</a>
+  </div>
+
+  <!-- Sección Parallax -->
+  <div class="parallax">
+    <h2 class="text-center text-white">Explora Más</h2>
+    <p class="text-center text-white">Desplázate hacia abajo para descubrir más contenido.</p>
+  </div>
+
+  <!-- Bootstrap JS y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Efecto al mover el mouse
+    document.addEventListener('mousemove', function(e) {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+
+      // Efecto para la sección de contenido
+      document.querySelector('.content').style.transform = `translate(${mouseX * 30}px, ${mouseY * 30}px)`;
+    });
+  </script>
+
 </body>
 </html>
